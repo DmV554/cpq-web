@@ -1,22 +1,49 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import './src/styles/global.css'
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+export interface Props {
+  title: string;
+  description?: string;
+  bodyClass?: string; // Para clases específicas por página si es necesario
+}
+
+const {
+  title,
+  description = "Consultora Punto de Quiebre - Evaluación experta para decisiones que transforman.",
+  bodyClass
+} = Astro.props;
+
+const siteName = "Consultora Punto de Quiebre";
+const currentPath = Astro.url.pathname;
+---
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" /> {/* Coloca tu favicon en public/assets/ */}
+  <title>{title} | {siteName}</title>
+  <meta name="description" content={description} />
+
+  {/* Open Graph / Redes Sociales (opcional pero recomendado) */}
+  <meta property="og:title" content={`${title} | ${siteName}`} />
+  <meta property="og:description" content={description} />
+  {/* <meta property="og:image" content={new URL('/assets/social-preview.jpg', Astro.url).href} /> */}
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={Astro.url.href} />
+
+  {/* Canonical URL (opcional pero bueno para SEO) */}
+  <link rel="canonical" href={Astro.url.href} />
+</head>
+
+<body class:list={['flex flex-col min-h-screen antialiased', bodyClass]}> {/* Clases base de Tailwind ya aplicadas vía @layer base en global.css */}
+  <Header siteName={siteName} currentPath={currentPath} />
+  <main id="main-content" class="flex-grow">
+    <slot /> {/* Aquí se inyectará el contenido de cada página */}
+  </main>
+  <Footer />
+</body>
+
+</html>

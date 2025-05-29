@@ -1,0 +1,18 @@
+---
+import Navigation from './Navigation.astro';
+const logoPath = '/assets/logo-punto-de-quiebre.png';
+
+interface Props {
+  siteName?: string;
+  currentPath: string;
+}
+const { siteName = "Consultora Punto de Quiebre", currentPath } = Astro.props;
+---
+<header class="bg-brand-background border-b border-gray-200/80 sticky top-0 z-50 shadow-sm"> {/* Sombra sutil y borde más tenue */}
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+    <a href="/" class="logo-link" aria-label={`Ir a la página de inicio de ${siteName}`}>
+      <img src={logoPath} alt={`Logo de ${siteName}`} class="h-14 md:h-16 w-auto transition-opacity duration-300 hover:opacity-80" /> {/* Ajusta altura y añade efecto hover */}
+    </a>
+    <Navigation currentPath={currentPath} />
+  </div>
+</header>

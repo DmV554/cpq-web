@@ -1,0 +1,58 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700;900&display=swap');
+
+/* 2. Define tus variables CSS para el tema.
+   Tailwind v4 está diseñado para detectar y usar estas variables. */
+:root {
+  --color-primary-dark: #3D321A;
+  --color-accent-gold: #B08D57;
+  --color-accent-gold-darker: #8C6B3F;
+  --color-accent-gold-lighter: #D4AF7A;
+  --color-brand-background: #FFFFFF; /* O #F8F8F8 */
+  --color-text-body: #4A4A4A;
+  --color-text-light: #FFFFFF;
+
+  /* Tipografía */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Lato', sans-serif;
+
+  /* También puedes definir aquí otros tokens de diseño si lo deseas */
+}
+
+/* 3. Incluye las directivas de Tailwind.
+   Tailwind v4 procesará esto y usará tus variables CSS de arriba. */
+@tailwind utilities;
+
+/* 4. Opcional: Aplicar estilos base adicionales usando tus variables */
+@layer base {
+  body {
+      font-family: var(--font-body), serif;
+    background-color: var(--color-brand-background);
+    color: var(--color-text-body);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading), serif;
+    color: var(--color-primary-dark);
+    margin-bottom: 0.75em; /* Ajusta según necesites */
+    line-height: 1.3;
+  }
+  h1 { font-size: 2.5rem; font-weight: 900;}
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.5rem; }
+
+  p {
+    margin-bottom: 1em;
+  }
+
+  a {
+    color: var(--color-accent-gold-darker); /* Tailwind podría generar utilidades como text-[--color-accent-gold-darker] */
+    /* O puedes definir clases de componentes si lo prefieres */
+  }
+  a:hover {
+    color: var(--color-accent-gold);
+  }
+}

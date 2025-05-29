@@ -1,0 +1,49 @@
+---
+// Si no usas @tailwindcss/forms, los estilos base de los inputs serán los del navegador.
+// Puedes añadir clases de Tailwind para estilizar cada input.
+interface Props {
+    initialService?: string | null;
+}
+const { initialService } = Astro.props;
+---
+<form
+  action="TU_ENDPOINT_DE_FORMULARIO"
+  method="POST"
+  class="space-y-6"
+>
+  <div>
+    <label for="name" class="block text-sm font-medium text-text-body mb-1">Nombre Completo</label>
+    <input type="text" name="name" id="name" required class="mt-1 block w-full px-3 py-2.5 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-accent-gold focus:border-accent-gold sm:text-sm placeholder-gray-400" placeholder="Tu nombre">
+  </div>
+
+  <div>
+    <label for="email" class="block text-sm font-medium text-text-body mb-1">Correo Electrónico</label>
+    <input type="email" name="email" id="email" required class="mt-1 block w-full px-3 py-2.5 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-accent-gold focus:border-accent-gold sm:text-sm placeholder-gray-400" placeholder="tu@email.com">
+  </div>
+
+  <div>
+    <label for="phone" class="block text-sm font-medium text-text-body mb-1">Teléfono (Opcional)</label>
+    <input type="tel" name="phone" id="phone" class="mt-1 block w-full px-3 py-2.5 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-accent-gold focus:border-accent-gold sm:text-sm placeholder-gray-400" placeholder="+56 9 1234 5678">
+  </div>
+
+  {initialService && (
+    <div>
+      <label for="service" class="block text-sm font-medium text-text-body mb-1">Servicio de Interés</label>
+      <input type="text" name="service" id="service" value={initialService} readonly class="mt-1 block w-full px-3 py-2.5 border border-gray-300 rounded-md shadow-sm bg-gray-100 sm:text-sm">
+    </div>
+  )}
+
+  <div>
+    <label for="message" class="block text-sm font-medium text-text-body mb-1">Mensaje</label>
+    <textarea id="message" name="message" rows="5" required class="mt-1 block w-full px-3 py-2.5 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-accent-gold focus:border-accent-gold sm:text-sm placeholder-gray-400" placeholder="Escribe tu consulta aquí..."></textarea>
+  </div>
+
+  {/* Para Netlify Forms, podrías añadir un campo oculto: <input type="hidden" name="form-name" value="contact" /> */}
+  {/* Y data-netlify="true" en la etiqueta <form> */}
+
+  <div>
+    <button type="submit" class="w-full flex justify-center py-3 px-6 border border-transparent rounded-md shadow-lg text-base font-medium text-text-light bg-accent-gold hover:bg-accent-gold-darker focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-gold transition-colors duration-300">
+      Enviar Mensaje
+    </button>
+  </div>
+</form>

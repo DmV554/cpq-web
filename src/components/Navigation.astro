@@ -1,0 +1,36 @@
+---
+interface Props {
+    currentPath: string;
+}
+const { currentPath } = Astro.props;
+
+const navLinks = [
+  { href: "/", text: "Inicio" },
+  { href: "/nosotros/", text: "Quiénes Somos" }, // Añade trailing slash para consistencia con Astro
+  { href: "/servicios/", text: "Servicios" },
+  { href: "/contacto/", text: "Contacto" },
+];
+---
+<nav class="main-navigation" aria-label="Navegación principal">
+  <ul class="flex space-x-5 md:space-x-7"> {/* Ajuste de espaciado */}
+    {navLinks.map(link => {
+      // Lógica de isActive más precisa para Astro (considera trailing slashes)
+      const isActive = currentPath === link.href || currentPath === `${link.href.slice(0, -1)}`;
+
+      return (
+        <li>
+          <a
+            href={link.href}
+            class:list={[
+              "font-semibold text-sm uppercase tracking-wider pb-1.5 border-b-2 hover:text-accent-gold hover:border-accent-gold focus:outline-none focus:text-accent-gold focus:border-accent-gold transition-all duration-200 ease-in-out",
+              isActive ? "text-accent-gold border-accent-gold" : "text-primary-dark border-transparent"
+            ]}
+            aria-current={isActive ? "page" : false}
+          >
+            {link.text}
+          </a>
+        </li>
+      )
+    })}
+  </ul>
+</nav>

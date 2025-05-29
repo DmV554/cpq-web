@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+// Para pre-rellenar el servicio si viene de la página de servicios
+const servicioParam = Astro.url.searchParams.get('servicio');
+---
+<Layout title="Contacto" description="Ponte en contacto con Consultora Punto de Quiebre. Estamos listos para escuchar tus desafíos y ayudarte a encontrar soluciones.">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <header class="text-center mb-12 md:mb-16">
+      <h1 class="text-4xl md:text-5xl font-bold text-primary-dark">Contáctanos</h1>
+      <p class="text-lg md:text-xl text-text-body mt-4 max-w-2xl mx-auto">¿Tienes alguna pregunta o deseas explorar cómo podemos colaborar? Completa el formulario o utiliza nuestros datos de contacto.</p>
+    </header>
+
+    <div class="grid md:grid-cols-5 gap-10 md:gap-16">
+      <div class="md:col-span-3">
+        <h2 class="text-2xl md:text-3xl font-semibold text-accent-gold-darker mb-6">Envíanos un Mensaje</h2>
+        <ContactForm initialService={servicioParam} />
+      </div>
+      <aside class="md:col-span-2 bg-gray-50/70 p-6 md:p-8 rounded-lg shadow-sm">
+        <h3 class="text-xl font-semibold text-primary-dark mb-6">Información de Contacto</h3>
+        <div class="space-y-4 text-text-body">
+          <div>
+            <h4 class="font-semibold text-accent-gold-darker">Dirección</h4>
+            <p>Av. Principal 123, Oficina 405<br/>Ciudad, Provincia, País</p>
+          </div>
+          <div>
+            <h4 class="font-semibold text-accent-gold-darker">Teléfono</h4>
+            <p><a href="tel:+56912345678" class="hover:text-accent-gold">+56 9 1234 5678</a></p>
+          </div>
+          <div>
+            <h4 class="font-semibold text-accent-gold-darker">Correo Electrónico</h4>
+            <p><a href="mailto:contacto@puntodequiebre.consultora" class="hover:text-accent-gold">contacto@puntodequiebre.consultora</a></p> {/* Reemplaza con tu email real */}
+          </div>
+          <div>
+            <h4 class="font-semibold text-accent-gold-darker">Horario de Atención</h4>
+            <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+          </div>
+        </div>
+        {/* Podrías añadir un mapa de Google Maps embebido aquí si es relevante */}
+      </aside>
+    </div>
+  </div>
+</Layout>

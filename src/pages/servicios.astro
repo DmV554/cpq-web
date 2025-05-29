@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const servicios = [
+  {
+    nombre: "Diagnóstico Organizacional Integral",
+    descripcion: "Analizamos a fondo la estructura, procesos, cultura y rendimiento de tu organización para identificar áreas de oportunidad y puntos críticos.",
+    // icono: "icono-diagnostico.svg" // Placeholder
+  },
+  {
+    nombre: "Planificación Estratégica y Alineación",
+    descripcion: "Te ayudamos a definir o redefinir tu rumbo estratégico, asegurando que todas las áreas de tu empresa trabajen coordinadamente hacia los mismos objetivos.",
+    // icono: "icono-planificacion.svg"
+  },
+  {
+    nombre: "Optimización de Procesos y Eficiencia Operativa",
+    descripcion: "Identificamos cuellos de botella y rediseñamos tus procesos para mejorar la productividad, reducir costos y aumentar la calidad.",
+    // icono: "icono-optimizacion.svg"
+  },
+  {
+    nombre: "Desarrollo de Liderazgo y Equipos de Alto Rendimiento",
+    descripcion: "Fortalecemos las habilidades de tus líderes y fomentamos la colaboración para construir equipos cohesivos y altamente efectivos.",
+    // icono: "icono-liderazgo.svg"
+  },
+  {
+    nombre: "Gestión del Cambio y Transformación Cultural",
+    descripcion: "Acompañamos a tu organización en procesos de cambio, minimizando la resistencia y asegurando una adopción exitosa de nuevas formas de trabajar.",
+    // icono: "icono-cambio.svg"
+  },
+  {
+    nombre: "Consultoría en Innovación y Nuevos Modelos de Negocio",
+    descripcion: "Exploramos contigo nuevas avenidas de crecimiento, fomentando la cultura de innovación y el desarrollo de modelos de negocio disruptivos.",
+    // icono: "icono-innovacion.svg"
+  }
+];
+---
+<Layout title="Nuestros Servicios" description="Descubre cómo los servicios de Consultora Punto de Quiebre pueden ayudarte a diagnosticar, planificar y transformar tu organización para el éxito.">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <header class="text-center mb-12 md:mb-16">
+      <h1 class="text-4xl md:text-5xl font-bold text-primary-dark">Nuestros Servicios</h1>
+      <p class="text-lg md:text-xl text-text-body mt-4 max-w-3xl mx-auto">Soluciones a medida diseñadas para generar un impacto significativo y sostenible en tu organización.</p>
+    </header>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+      {servicios.map(servicio => (
+        <article class="flex flex-col bg-brand-background p-6 md:p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+          {/* {servicio.icono && (
+            <div class="mb-4 text-accent-gold">
+              <img src={`/assets/icons/${servicio.icono}`} alt="" class="h-12 w-12 mx-auto md:mx-0" />
+            </div>
+          )}
+          */}
+          <h2 class="text-xl lg:text-2xl font-semibold text-accent-gold-darker mb-3">{servicio.nombre}</h2>
+          <p class="text-text-body text-base flex-grow mb-6">{servicio.descripcion}</p>
+          <div class="mt-auto">
+            <a href="/contacto/?servicio={encodeURIComponent(servicio.nombre)}" class="inline-flex items-center text-sm font-semibold text-primary-dark hover:text-accent-gold group">
+              Más Información
+              <span class="ml-1.5 transition-transform duration-200 ease-in-out group-hover:translate-x-1">&rarr;</span>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <section class="mt-16 md:mt-24 text-center py-12 px-6 bg-gray-50/70 rounded-lg">
+        <h2 class="text-2xl md:text-3xl font-semibold text-primary-dark mb-6">¿Interesado en una solución específica?</h2>
+        <p class="text-text-body max-w-xl mx-auto mb-8">
+            Cada organización es única. Contáctanos para discutir tus necesidades particulares y cómo podemos diseñar una propuesta de valor a tu medida.
+        </p>
+        <a href="/solicitar-cotizacion/" class="inline-block bg-accent-gold text-text-light font-semibold py-3 px-10 rounded-md shadow-lg hover:bg-accent-gold-darker focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-gray-50/70 transition-all duration-300 ease-in-out transform hover:scale-105">
+            Solicitar Cotización
+        </a>
+    </section>
+  </div>
+</Layout>
