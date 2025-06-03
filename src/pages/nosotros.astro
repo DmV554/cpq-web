@@ -1,47 +1,63 @@
 ---
 import Layout from '../layouts/Layout.astro';
----
-<Layout title="Quiénes Somos" description="Conoce más sobre Consultora Punto de Quiebre, nuestra misión, visión y el equipo de expertos dedicados a tu éxito.">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-    <header class="text-center mb-12 md:mb-16">
-      <h1 class="text-4xl md:text-5xl font-bold text-primary-dark">Quiénes Somos</h1>
-      <p class="text-lg md:text-xl text-text-body mt-4 max-w-2xl mx-auto">Un equipo apasionado por la estrategia y la transformación organizacional.</p>
-    </header>
 
-    <section class="mb-12 md:mb-16">
-      <h2 class="text-2xl md:text-3xl font-semibold text-accent-gold-darker mb-6 text-center md:text-left">Nuestra Historia</h2>
-      <div class="prose prose-lg max-w-none text-text-body"> {/* Usando clases de Tailwind Typography para estilizar contenido de texto largo */}
-        <p>Consultora Punto de Quiebre nació de la visión compartida de un grupo de profesionales con décadas de experiencia en la identificación de puntos críticos y la implementación de soluciones innovadoras que generan un impacto real y medible en las organizaciones. Creemos firmemente que cada desafío representa una oportunidad de quiebre positivo hacia un futuro más próspero y eficiente.</p>
-        <p>Desde nuestros inicios, nos hemos dedicado a...</p>
-        {/* Añade más párrafos sobre la historia */}
+// Textos oficiales de la empresa (refinados)
+const quienesSomosTexto = "Desde el corazón de la Región de Valparaíso, Consultora Punto de Quiebre agrupa la experiencia y visión de un distinguido equipo multidisciplinario. Nuestra formación abarca derecho, ingeniería comercial e industrial, masters en dirección general de empresas (MBA) y una profunda especialización en la evaluación de proyectos sociales. Hemos convergido nuestros conocimientos y capacidades para brindar un servicio de asesoría innovador y adaptado a las realidades de las comunas de Chile.";
+const misionTexto = "Nuestra misión es catalizar la transformación municipal a través de servicios de consultoría innovadores, enfocados en la formulación, implementación y monitoreo riguroso de proyectos sociales. Nos dedicamos a optimizar el uso de los recursos municipales para generar un impacto tangible y positivo en la calidad de vida de la población objetivo.";
+const visionTexto = "Aspiramos a consolidarnos en el mediano plazo como la consultoría de referencia en la Región de Valparaíso, siendo el socio estratégico para aquellos municipios que buscan elevar significativamente la calidad de vida de sus habitantes. Proyectamos un futuro donde impulsamos el crecimiento comunal de manera sostenida, priorizada y profundamente conectada con las necesidades sociales.";
+const valores = [
+  "Responsabilidad y consciencia social",
+  "Soluciones innovadoras",
+  "Orientación al cliente y sus necesidades",
+  "Trabajo en equipo con los distintos estamentos municipales",
+  "Integridad, transparencia y confidencialidad"
+];
+---
+<Layout title="Quiénes Somos" description="Conoce la historia, misión, visión y valores de Consultora Punto de Quiebre. Expertos en transformación municipal desde la Región de Valparaíso.">
+  <div class="bg-[var(--color-bg-secondary)] py-16 md:py-20">
+    <div class="container mx-auto px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-[var(--color-primary-dark)] !leading-tight text-balance">
+        Conoce a Consultora Punto de Quiebre
+      </h1>
+      <p class="mt-6 text-lg md:text-xl text-[var(--color-text-secondary)] max-w-3xl mx-auto text-pretty">
+        Impulsando el desarrollo comunal a través de la excelencia profesional y un compromiso social inquebrantable.
+      </p>
+    </div>
+  </div>
+
+  <article class="container mx-auto px-6 lg:px-8 py-12 md:py-20">
+    <section class="max-w-3xl mx-auto mb-16 md:mb-20">
+      <h2 class="text-3xl md:text-4xl font-semibold text-[var(--color-primary-dark)] mb-6 text-center">Nuestra Identidad</h2>
+      <div class="prose prose-xl max-w-none text-[var(--color-text-secondary)] text-pretty">
+        <p>{quienesSomosTexto}</p>
+        {/* Podrías añadir aquí un segundo párrafo si quieres extender la sección "Nuestra Historia" que tenías antes */}
+        {/* <p>Desde nuestra fundación, hemos trabajado incansablemente con diversos municipios, entendiendo que cada comuna posee un potencial único y desafíos específicos...</p> */}
       </div>
     </section>
 
-    <section class="grid md:grid-cols-2 gap-8 md:gap-12 items-start mb-12 md:mb-16">
-      <div class="bg-gray-50/70 p-6 md:p-8 rounded-lg shadow-md">
-        <h2 class="text-2xl md:text-3xl font-semibold text-accent-gold-darker mb-4">Misión</h2>
-        <p class="text-text-body">Proveer a nuestros clientes evaluaciones expertas y estrategias personalizadas que les permitan tomar decisiones transformadoras, optimizar su rendimiento y alcanzar un crecimiento sostenible en un entorno empresarial dinámico y competitivo.</p>
-      </div>
-      <div class="bg-gray-50/70 p-6 md:p-8 rounded-lg shadow-md">
-        <h2 class="text-2xl md:text-3xl font-semibold text-accent-gold-darker mb-4">Visión</h2>
-        <p class="text-text-body">Ser la consultora de referencia en Latinoamérica, reconocida por nuestra capacidad para generar puntos de quiebre estratégicos que impulsan la innovación, la eficiencia y el liderazgo de las organizaciones que confían en nosotros.</p>
+    <section class="mb-16 md:mb-20">
+      <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-stretch">
+        <div class="bg-[var(--color-bg-muted)] p-8 md:p-10 rounded-[var(--radius-lg)] shadow-[var(--shadow-lg)] flex flex-col">
+          <h2 class="text-2xl md:text-3xl font-semibold text-[var(--color-accent-gold-darker)] mb-4">Misión</h2>
+          <p class="text-[var(--color-text-secondary)] flex-grow text-pretty">{misionTexto}</p>
+        </div>
+        <div class="bg-[var(--color-bg-muted)] p-8 md:p-10 rounded-[var(--radius-lg)] shadow-[var(--shadow-lg)] flex flex-col">
+          <h2 class="text-2xl md:text-3xl font-semibold text-[var(--color-accent-gold-darker)] mb-4">Visión</h2>
+          <p class="text-[var(--color-text-secondary)] flex-grow text-pretty">{visionTexto}</p>
+        </div>
       </div>
     </section>
 
     <section>
-      <h2 class="text-2xl md:text-3xl font-semibold text-accent-gold-darker mb-8 text-center">Nuestros Valores</h2>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-        {['Integridad', 'Compromiso', 'Innovación', 'Colaboración', 'Excelencia', 'Adaptabilidad'].map(valor => (
-          <div class="bg-brand-background p-6 rounded-lg shadow-md text-center">
-            {/* Podrías poner un ícono SVG aquí relacionado al valor */}
-            <h3 class="text-xl font-semibold text-primary-dark mb-2">{valor}</h3>
-            {/* <p class="text-sm text-text-body">Breve descripción del valor.</p> */}
+      <h2 class="text-3xl md:text-4xl font-semibold text-[var(--color-primary-dark)] mb-10 md:mb-12 text-center">Nuestros Valores Fundamentales</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {valores.map(valor => (
+          <div class="bg-white p-6 py-8 rounded-[var(--radius-md)] shadow-[var(--shadow-md)] text-center ring-1 ring-[var(--color-neutral-200)]">
+            {/* Icono SVG opcional aquí arriba */}
+            <h3 class="text-xl font-medium text-[var(--color-text-primary)]">{valor}</h3>
           </div>
         ))}
       </div>
     </section>
-
-    {/* Podrías añadir una sección de "Nuestro Equipo" aquí */}
-
-  </div>
+  </article>
 </Layout>

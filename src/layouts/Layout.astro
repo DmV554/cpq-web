@@ -24,7 +24,7 @@ const currentPath = Astro.url.pathname;
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="/assets/favicon.png" /> {/* Coloca tu favicon en public/assets/ */}
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
   <title>{title} | {siteName}</title>
   <meta name="description" content={description} />
   <ClientRouter />
@@ -37,10 +37,10 @@ const currentPath = Astro.url.pathname;
   <link rel="canonical" href={Astro.url.href} />
 </head>
 
-<body class:list={['flex flex-col min-h-screen antialiased', bodyClass]}> {/* Clases base de Tailwind ya aplicadas vía @layer base en global.css */}
+<body class:list={['flex flex-col min-h-screen antialiased', bodyClass]}>
   <Header siteName={siteName} currentPath={currentPath} />
   <main id="main-content" class="flex-grow">
-    <slot /> {/* Aquí se inyectará el contenido de cada página */}
+    <slot />
   </main>
   <Footer />
 </body>

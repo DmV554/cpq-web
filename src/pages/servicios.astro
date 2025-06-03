@@ -1,75 +1,94 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const servicios = [
+const metodologiaIntro = "Nuestra oferta de servicios se cimienta en la prestigiosa metodología ILPES-CEPAL (Instituto Latinoamericano y del Caribe de Planificación Económica y Social - Comisión Económica para América Latina y el Caribe). Este enfoque, validado y vigente en entidades como el Ministerio de Desarrollo Social y Familia y el Ministerio de Defensa, nos permite asegurar una contribución experta y eficiente a la gestión municipal en el vital ámbito de políticas, programas y proyectos sociales.";
+
+// Deberías definir tus servicios específicos aquí. Estos son ejemplos basados en la conversación anterior.
+// Adapta estos a los servicios reales que CPQ quiere destacar.
+const serviciosDetallados = [
   {
-    nombre: "Diagnóstico Organizacional Integral",
-    descripcion: "Analizamos a fondo la estructura, procesos, cultura y rendimiento de tu organización para identificar áreas de oportunidad y puntos críticos.",
-    // icono: "icono-diagnostico.svg" // Placeholder
+    nombre: "Formulación y Evaluación de Proyectos Sociales",
+    descripcion: "Aplicamos nuestra metodología experta para diseñar, formular y evaluar proyectos sociales con alto impacto, asegurando la optimización de recursos y el cumplimiento de objetivos medibles para su comunidad.",
+    puntosClave: [
+      "Diagnóstico participativo de necesidades locales.",
+      "Diseño de proyectos con marco lógico y enfoque de resultados.",
+      "Análisis de viabilidad técnica, económica y social.",
+      "Definición de indicadores de impacto y sistemas de seguimiento."
+    ]
   },
   {
-    nombre: "Planificación Estratégica y Alineación",
-    descripcion: "Te ayudamos a definir o redefinir tu rumbo estratégico, asegurando que todas las áreas de tu empresa trabajen coordinadamente hacia los mismos objetivos.",
-    // icono: "icono-planificacion.svg"
+    nombre: "Implementación Estratégica y Monitoreo de Programas",
+    descripcion: "Brindamos asesoría integral en la puesta en marcha y el seguimiento continuo de programas municipales, garantizando una ejecución eficiente, transparente y alineada con los objetivos estratégicos.",
+    puntosClave: [
+      "Planificación operativa detallada y gestión de cronogramas.",
+      "Coordinación y gestión de stakeholders clave.",
+      "Implementación de sistemas de monitoreo y evaluación de desempeño.",
+      "Generación de informes de avance, resultados e impacto."
+    ]
   },
   {
-    nombre: "Optimización de Procesos y Eficiencia Operativa",
-    descripcion: "Identificamos cuellos de botella y rediseñamos tus procesos para mejorar la productividad, reducir costos y aumentar la calidad.",
-    // icono: "icono-optimizacion.svg"
-  },
-  {
-    nombre: "Desarrollo de Liderazgo y Equipos de Alto Rendimiento",
-    descripcion: "Fortalecemos las habilidades de tus líderes y fomentamos la colaboración para construir equipos cohesivos y altamente efectivos.",
-    // icono: "icono-liderazgo.svg"
-  },
-  {
-    nombre: "Gestión del Cambio y Transformación Cultural",
-    descripcion: "Acompañamos a tu organización en procesos de cambio, minimizando la resistencia y asegurando una adopción exitosa de nuevas formas de trabajar.",
-    // icono: "icono-cambio.svg"
-  },
-  {
-    nombre: "Consultoría en Innovación y Nuevos Modelos de Negocio",
-    descripcion: "Exploramos contigo nuevas avenidas de crecimiento, fomentando la cultura de innovación y el desarrollo de modelos de negocio disruptivos.",
-    // icono: "icono-innovacion.svg"
+    nombre: "Fortalecimiento y Modernización de la Gestión Municipal",
+    descripcion: "Contribuimos activamente a mejorar la eficiencia y la capacidad de la gestión municipal en el ámbito de políticas y programas sociales, optimizando procesos y desarrollando las competencias internas.",
+    puntosClave: [
+      "Análisis y reingeniería de procesos municipales.",
+      "Desarrollo de capacidades y formación para el equipo municipal.",
+      "Implementación de herramientas tecnológicas para la gestión.",
+      "Asesoría experta en el diseño e implementación de políticas públicas locales."
+    ]
   }
+  // Puedes añadir más servicios como "Desarrollo de Liderazgo", "Gestión del Cambio", etc.
 ];
 ---
-<Layout title="Nuestros Servicios" description="Descubre cómo los servicios de Consultora Punto de Quiebre pueden ayudarte a diagnosticar, planificar y transformar tu organización para el éxito.">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-    <header class="text-center mb-12 md:mb-16">
-      <h1 class="text-4xl md:text-5xl font-bold text-primary-dark">Nuestros Servicios</h1>
-      <p class="text-lg md:text-xl text-text-body mt-4 max-w-3xl mx-auto">Soluciones a medida diseñadas para generar un impacto significativo y sostenible en tu organización.</p>
-    </header>
+<Layout title="Servicios" description="Consultora Punto de Quiebre: Aplicamos la metodología ILPES-CEPAL para una gestión municipal eficiente en políticas, programas y proyectos sociales.">
+  <div class="bg-[var(--color-bg-secondary)] py-16 md:py-20">
+    <div class="container mx-auto px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-[var(--color-primary-dark)] !leading-tight text-balance">
+        Servicios de Consultoría Especializada
+      </h1>
+      <p class="mt-6 text-lg md:text-xl text-[var(--color-text-secondary)] max-w-3xl mx-auto text-pretty">
+        {metodologiaIntro}
+      </p>
+    </div>
+  </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-      {servicios.map(servicio => (
-        <article class="flex flex-col bg-brand-background p-6 md:p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
-          {/* {servicio.icono && (
-            <div class="mb-4 text-accent-gold">
-              <img src={`/assets/icons/${servicio.icono}`} alt="" class="h-12 w-12 mx-auto md:mx-0" />
-            </div>
-          )}
-          */}
-          <h2 class="text-xl lg:text-2xl font-semibold text-accent-gold-darker mb-3">{servicio.nombre}</h2>
-          <p class="text-text-body text-base flex-grow mb-6">{servicio.descripcion}</p>
-          <div class="mt-auto">
-            <a href="/contacto/?servicio={encodeURIComponent(servicio.nombre)}" class="inline-flex items-center text-sm font-semibold text-primary-dark hover:text-accent-gold group">
-              Más Información
-              <span class="ml-1.5 transition-transform duration-200 ease-in-out group-hover:translate-x-1">&rarr;</span>
+  <div class="container mx-auto px-6 lg:px-8 py-12 md:py-20">
+    <h2 class="text-3xl md:text-4xl font-semibold text-[var(--color-primary-dark)] mb-12 md:mb-16 text-center">Nuestras Áreas de Expertise</h2>
+    <div class="space-y-12 md:space-y-16">
+      {serviciosDetallados.map((servicio, index) => (
+        <article class={`bg-white p-8 md:p-10 rounded-[var(--radius-xl)] shadow-[var(--shadow-lg)] flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 items-center`}>
+          <div class={`md:w-2/5 flex-shrink-0 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
+            {/* Imagen Placeholder - Reemplazar con imagen real del servicio */}
+            <img src={`https://picsum.photos/seed/${servicio.nombre.replace(/\s+/g, '-')}/600/400`} alt={`Ilustración para ${servicio.nombre}`} class="rounded-[var(--radius-lg)] shadow-[var(--shadow-md)] aspect-[4/3] object-cover w-full" />
+          </div>
+          <div class={`flex-grow ${index % 2 === 0 ? '' : ''}`}>
+            <h3 class="text-2xl lg:text-3xl font-semibold text-[var(--color-accent-gold-darker)] mb-4">{servicio.nombre}</h3>
+            <p class="text-[var(--color-text-secondary)] mb-6 text-pretty">{servicio.descripcion}</p>
+            <ul class="space-y-2.5 mb-8">
+              {servicio.puntosClave.map(punto => (
+                <li class="flex items-start">
+                  <svg class="flex-shrink-0 h-5 w-5 text-[var(--color-accent-gold)] mt-1 mr-2.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                  </svg>
+                  <span class="text-[var(--color-text-secondary)] text-sm">{punto}</span>
+                </li>
+              ))}
+            </ul>
+            <a href={`/contacto/?servicio=${encodeURIComponent(servicio.nombre)}`} class="button bg-[var(--color-primary-dark)] text-white hover:bg-[var(--color-neutral-700)] py-2.5 px-6 text-base font-medium rounded-[var(--radius-md)] transition-colors">
+              Consultar por este servicio
             </a>
           </div>
         </article>
       ))}
     </div>
 
-    <section class="mt-16 md:mt-24 text-center py-12 px-6 bg-gray-50/70 rounded-lg">
-        <h2 class="text-2xl md:text-3xl font-semibold text-primary-dark mb-6">¿Interesado en una solución específica?</h2>
-        <p class="text-text-body max-w-xl mx-auto mb-8">
-            Cada organización es única. Contáctanos para discutir tus necesidades particulares y cómo podemos diseñar una propuesta de valor a tu medida.
-        </p>
-        <a href="/solicitar-cotizacion/" class="inline-block bg-accent-gold text-text-light font-semibold py-3 px-10 rounded-md shadow-lg hover:bg-accent-gold-darker focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-gray-50/70 transition-all duration-300 ease-in-out transform hover:scale-105">
-            Solicitar Cotización
-        </a>
+    <section class="mt-16 md:mt-24 text-center py-12 md:py-16 px-6 bg-[var(--color-bg-muted)] rounded-[var(--radius-lg)]">
+      <h2 class="text-2xl md:text-3xl font-semibold text-[var(--color-primary-dark)] mb-6 text-balance">¿Buscas una Solución Específica para tu Municipio?</h2>
+      <p class="text-[var(--color-text-secondary)] max-w-xl mx-auto mb-8 text-pretty">
+          Cada municipalidad enfrenta desafíos particulares. Conversemos sobre tus necesidades y diseñemos juntos una propuesta de valor a la medida de tu comuna.
+      </p>
+      <a href="/solicitar-cotizacion/" class="button bg-[var(--color-accent-gold)] text-[var(--color-primary-dark)] hover:bg-[var(--color-accent-gold-darker)] hover:text-white py-3 px-10 text-lg font-semibold rounded-[var(--radius-md)] shadow-[var(--shadow-md)] transition-all">
+          Solicitar Cotización
+      </a>
     </section>
   </div>
 </Layout>
